@@ -78,7 +78,8 @@
       transition: color 0.2s;
     }
     .nav-links a:hover { color: var(--text); }
-    .nav-links a.active { color: var(--accent); }
+    .nav-links a.active { color: var(--accent); border: 1px solid var(--accent); padding: 0.3rem 0.7rem; border-radius: 3px; }
+    
 
     /* Theme Switcher */
     .theme-switcher { display: flex; gap: 6px; align-items: center; }
@@ -355,7 +356,7 @@
     <h1 class="hero-name">Nishka<br><em>Mathew</em></h1>
     <p class="hero-title">Human-Centered Computing · Charlotte, NC</p>
     <p class="hero-desc">
-      CS + Psychology graduate from UNC Charlotte — I run the user studies that generate the data, then train the models that learn from it.
+      CS + Psychology graduate from UNC Charlotte. I run the user studies that generate the data, then train the ML models that learn from it.
     </p>
     <div class="hero-cta">
       <a href="#projects" class="btn btn-primary">View Projects</a>
@@ -429,7 +430,7 @@
       <div class="project-badge">1st Place</div>
       <div class="project-name">Pearl Hacks 2025</div>
       <div class="project-desc">
-        A responsive mentorship platform connecting industry professionals, researchers, and aspiring students through structured mentorship, collaborative research sharing, and daily career-focused Q&amp;A in 24 hours. Won 1st Place sponsored by Qorvo.
+        Built in 24 hours at Pearl Hacks 2025, BranchOut is a community-driven mentorship platform to fill the gap of the lack of representation and personal connection in traditional networking spaces. This website connects industry mentors, researchers, and students through three core features: a mentorship matching system with demographic filters, a research collaboration portal that matches researchers by shared keywords, and daily career-focused Q&A prompts designed to foster authentic, ongoing engagement. The front-end was built in HTML and CSS, with JavaScript and Python powering the back-end logic. Integrating D3.js was one of our biggest technical challenges that we worked through with mentor support. We ended up winning 1st Place sponsored by Qorvo!
       </div>
       <div class="project-tags">
         <span class="tag">HTML/CSS</span>
@@ -493,7 +494,7 @@
       <div class="project-icon">🎬</div>
       <div class="project-name">CinemaQuest</div>
       <div class="project-desc">
-        iOS movie discovery and watchlist app built with Xcode and Swift. Integrates the TMDB API for real-time movie data, features an intuitive UIKit interface with async image loading (Nuke), and persistent user data across sessions.
+        iOS app built in Xcode using Swift for movie enthusiasts who want to discover new films and keep track of what they have watched. The app pulls real-time trending movie data from The Movie Database (TMDB) API, displaying detailed information including overviews, release dates, ratings, and movie posters. Users can manage two personal watchlists (Up Next and Watched) with the ability to add custom movies, leave notes, and set watch dates. Trending movies can also be sorted by release date, popularity, or rating. Built with a UIKit interface featuring async image loading via Nuke, all watchlist data is stored locally for persistent access across sessions.
       </div>
       <div class="project-tags">
         <span class="tag">Swift</span>
