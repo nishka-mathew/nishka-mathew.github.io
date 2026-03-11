@@ -1,0 +1,742 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Nishka Mathew — Portfolio</title>
+  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,600;1,300;1,400&family=DM+Mono:wght@300;400;500&family=DM+Sans:wght@300;400;500&display=swap" rel="stylesheet" />
+  <style>
+    /* ─── THEME VARIABLES ─────────────────────────────── */
+    :root {
+      --bg:         #f7f0e3;
+      --surface:    #efe6d0;
+      --border:     rgba(120,75,30,0.14);
+      --accent:     #7a4515;
+      --accent2:    #b5813a;
+      --text:       #2a1a0a;
+      --muted:      #8a6a4a;
+      --tag-bg:     rgba(122,69,21,0.10);
+      --tag-color:  #7a4515;
+      --card-hover: rgba(122,69,21,0.05);
+    }
+
+    /* ── DARK THEME ── */
+    [data-theme="dark"] {
+      --bg:         #0d0d0f;
+      --surface:    #141417;
+      --border:     rgba(255,255,255,0.07);
+      --accent:     #c8a97e;
+      --accent2:    #7ec8b4;
+      --text:       #e8e4dd;
+      --muted:      #7a7870;
+      --tag-bg:     rgba(200,169,126,0.10);
+      --tag-color:  #c8a97e;
+      --card-hover: rgba(200,169,126,0.04);
+    }
+
+    /* ─── RESET & BASE ────────────────────────────────── */
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+    html { scroll-behavior: smooth; }
+
+    body {
+      background: var(--bg);
+      color: var(--text);
+      font-family: 'DM Sans', sans-serif;
+      font-weight: 300;
+      font-size: 15px;
+      line-height: 1.7;
+      transition: background 0.4s, color 0.4s;
+      cursor: default;
+    }
+
+    ::selection { background: var(--accent); color: var(--bg); }
+
+    /* ─── NAV ──────────────────────────────────────────── */
+    nav {
+      position: fixed; top: 0; left: 0; right: 0; z-index: 100;
+      display: flex; align-items: center; justify-content: space-between;
+      padding: 0 clamp(1.5rem, 5vw, 4rem);
+      height: 64px;
+      background: rgba(13,13,15,0.85);
+      backdrop-filter: blur(16px);
+      border-bottom: 1px solid var(--border);
+      transition: background 0.4s;
+    }
+    [data-theme="dark"] nav   { background: rgba(13,13,15,0.85); }
+    nav { background: rgba(247,240,227,0.90); }
+
+    .nav-logo {
+      font-family: 'Cormorant Garamond', serif;
+      font-size: 1.25rem;
+      font-weight: 400;
+      letter-spacing: 0.04em;
+      color: var(--text);
+      text-decoration: none;
+    }
+    .nav-logo span { color: var(--accent); }
+
+    .nav-links {
+      display: flex; gap: 2rem; list-style: none; align-items: center;
+    }
+    .nav-links a {
+      color: var(--muted); text-decoration: none;
+      font-size: 0.78rem; letter-spacing: 0.08em; text-transform: uppercase;
+      transition: color 0.2s;
+    }
+    .nav-links a:hover { color: var(--text); }
+
+    /* ─── THEME SWITCHER ───────────────────────────────── */
+    .theme-switcher {
+      display: flex; gap: 6px; align-items: center;
+    }
+    .theme-dot {
+      width: 14px; height: 14px; border-radius: 50%;
+      cursor: pointer; border: 2px solid transparent;
+      transition: transform 0.2s, border-color 0.2s;
+    }
+    .theme-dot:hover { transform: scale(1.2); }
+    .theme-dot.active { border-color: var(--text); }
+    .theme-dot[data-t="default"] { background: #c8a07a; border: 1.5px solid #7a4515; }
+    .theme-dot[data-t="dark"]   { background: #c8a97e; }
+
+    /* ─── HERO ─────────────────────────────────────────── */
+    #hero {
+      min-height: 100vh;
+      display: flex; flex-direction: column; justify-content: flex-end;
+      padding: 0 clamp(1.5rem, 7vw, 7rem) clamp(4rem, 8vh, 7rem);
+      position: relative; overflow: hidden;
+    }
+
+    .hero-bg {
+      position: absolute; inset: 0; z-index: 0;
+      pointer-events: none;
+    }
+    .hero-bg svg { width: 100%; height: 100%; opacity: 0.25; }
+
+    .hero-content { position: relative; z-index: 1; }
+
+    .hero-eyebrow {
+      font-family: 'DM Mono', monospace;
+      font-size: 0.72rem; letter-spacing: 0.16em;
+      text-transform: uppercase; color: var(--accent);
+      margin-bottom: 1.2rem;
+      opacity: 0; animation: fadeUp 0.7s 0.2s forwards;
+    }
+
+    .hero-name {
+      font-family: 'Cormorant Garamond', serif;
+      font-size: clamp(3.5rem, 9vw, 8.5rem);
+      font-weight: 300; line-height: 0.95;
+      letter-spacing: -0.02em;
+      margin-bottom: 0.3rem;
+      opacity: 0; animation: fadeUp 0.7s 0.35s forwards;
+    }
+    .hero-name em { font-style: italic; color: var(--accent); }
+
+    .hero-title {
+      font-family: 'Cormorant Garamond', serif;
+      font-size: clamp(1.2rem, 3vw, 2.2rem);
+      font-weight: 300; font-style: italic;
+      color: var(--muted);
+      margin-bottom: 2rem;
+      opacity: 0; animation: fadeUp 0.7s 0.5s forwards;
+    }
+
+    .hero-desc {
+      max-width: 520px;
+      color: var(--muted); font-size: 0.92rem; line-height: 1.8;
+      margin-bottom: 2.5rem;
+      opacity: 0; animation: fadeUp 0.7s 0.65s forwards;
+    }
+
+    .hero-cta {
+      display: flex; gap: 1rem; flex-wrap: wrap;
+      opacity: 0; animation: fadeUp 0.7s 0.8s forwards;
+    }
+    .btn {
+      display: inline-flex; align-items: center; gap: 0.5rem;
+      padding: 0.7rem 1.6rem;
+      font-size: 0.78rem; letter-spacing: 0.1em; text-transform: uppercase;
+      text-decoration: none; border-radius: 2px;
+      transition: all 0.25s; cursor: pointer; border: none;
+    }
+    .btn-primary {
+      background: var(--accent); color: var(--bg); font-weight: 500;
+    }
+    .btn-primary:hover { opacity: 0.85; transform: translateY(-2px); }
+    .btn-outline {
+      background: transparent; color: var(--text);
+      border: 1px solid var(--border);
+    }
+    .btn-outline:hover { border-color: var(--accent); color: var(--accent); transform: translateY(-2px); }
+
+    .scroll-hint {
+      position: absolute; bottom: 2rem; right: clamp(1.5rem, 7vw, 7rem);
+      display: flex; flex-direction: column; align-items: center; gap: 0.5rem;
+      font-family: 'DM Mono', monospace; font-size: 0.62rem;
+      letter-spacing: 0.12em; text-transform: uppercase; color: var(--muted);
+      opacity: 0; animation: fadeIn 1s 1.2s forwards;
+    }
+    .scroll-line {
+      width: 1px; height: 50px;
+      background: linear-gradient(to bottom, var(--accent), transparent);
+    }
+
+    /* ─── SECTION WRAPPER ──────────────────────────────── */
+    section {
+      padding: clamp(5rem, 10vh, 9rem) clamp(1.5rem, 7vw, 7rem);
+    }
+
+    .section-header {
+      display: flex; align-items: baseline; gap: 1.5rem;
+      margin-bottom: 4rem;
+    }
+    .section-num {
+      font-family: 'DM Mono', monospace; font-size: 0.7rem;
+      color: var(--accent); letter-spacing: 0.1em;
+    }
+    .section-title {
+      font-family: 'Cormorant Garamond', serif;
+      font-size: clamp(2rem, 4vw, 3.2rem);
+      font-weight: 300; letter-spacing: -0.01em;
+    }
+    .section-line {
+      flex: 1; height: 1px; background: var(--border);
+    }
+
+    /* ─── ABOUT ────────────────────────────────────────── */
+    #about .about-grid {
+      display: grid; grid-template-columns: 1fr 1fr; gap: 5rem;
+      align-items: start;
+    }
+    @media (max-width: 768px) { #about .about-grid { grid-template-columns: 1fr; gap: 3rem; } }
+
+    .about-text p { color: var(--muted); margin-bottom: 1.2rem; line-height: 1.85; }
+    .about-text p:last-child { margin-bottom: 0; }
+
+    .about-stats {
+      display: grid; grid-template-columns: 1fr 1fr; gap: 1.5rem;
+    }
+    .stat-card {
+      border: 1px solid var(--border); padding: 1.5rem;
+      border-radius: 4px; transition: border-color 0.25s;
+    }
+    .stat-card:hover { border-color: var(--accent); }
+    .stat-num {
+      font-family: 'Cormorant Garamond', serif;
+      font-size: 2.8rem; font-weight: 300; color: var(--accent);
+      line-height: 1;
+    }
+    .stat-label {
+      font-size: 0.72rem; color: var(--muted);
+      letter-spacing: 0.08em; text-transform: uppercase;
+      margin-top: 0.4rem;
+    }
+
+    /* ─── PROJECTS ─────────────────────────────────────── */
+    #projects { background: var(--surface); }
+
+    .projects-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fill, minmax(340px, 1fr));
+      gap: 1.5px;
+      border: 1.5px solid var(--border);
+      border-radius: 6px; overflow: hidden;
+    }
+
+    .project-card {
+      background: var(--bg);
+      padding: 2.2rem;
+      display: flex; flex-direction: column; gap: 1rem;
+      border-right: 1.5px solid var(--border);
+      border-bottom: 1.5px solid var(--border);
+      position: relative; overflow: hidden;
+      transition: background 0.25s;
+      cursor: default;
+    }
+    .project-card::before {
+      content: '';
+      position: absolute; top: 0; left: 0; right: 0;
+      height: 2px; background: var(--accent);
+      transform: scaleX(0); transform-origin: left;
+      transition: transform 0.35s ease;
+    }
+    .project-card:hover { background: var(--card-hover); }
+    .project-card:hover::before { transform: scaleX(1); }
+
+    .project-icon {
+      width: 40px; height: 40px; border-radius: 8px;
+      display: flex; align-items: center; justify-content: center;
+      background: var(--tag-bg); font-size: 1.2rem;
+    }
+
+    .project-badge {
+      position: absolute; top: 1.5rem; right: 1.5rem;
+      font-family: 'DM Mono', monospace;
+      font-size: 0.6rem; letter-spacing: 0.12em; text-transform: uppercase;
+      padding: 0.2rem 0.6rem; border-radius: 2px;
+      background: var(--accent); color: var(--bg);
+    }
+
+    .project-name {
+      font-family: 'Cormorant Garamond', serif;
+      font-size: 1.4rem; font-weight: 400; letter-spacing: -0.01em;
+    }
+
+    .project-desc {
+      color: var(--muted); font-size: 0.88rem; line-height: 1.75;
+      flex: 1;
+    }
+
+    .project-tags {
+      display: flex; flex-wrap: wrap; gap: 0.4rem;
+    }
+    .tag {
+      font-family: 'DM Mono', monospace;
+      font-size: 0.62rem; letter-spacing: 0.08em;
+      padding: 0.25rem 0.6rem; border-radius: 2px;
+      background: var(--tag-bg); color: var(--tag-color);
+    }
+
+    .project-links {
+      display: flex; gap: 1rem; margin-top: 0.5rem;
+    }
+    .project-link {
+      font-size: 0.72rem; letter-spacing: 0.08em; text-transform: uppercase;
+      color: var(--muted); text-decoration: none;
+      display: flex; align-items: center; gap: 0.3rem;
+      transition: color 0.2s;
+    }
+    .project-link:hover { color: var(--accent); }
+    .project-link svg { width: 12px; height: 12px; }
+
+    /* ─── EXPERIENCE ───────────────────────────────────── */
+    #experience .exp-list {
+      display: flex; flex-direction: column; gap: 0;
+    }
+    .exp-item {
+      display: grid; grid-template-columns: 200px 1fr;
+      gap: 3rem; padding: 2.5rem 0;
+      border-bottom: 1px solid var(--border);
+      transition: all 0.2s;
+    }
+    .exp-item:first-child { border-top: 1px solid var(--border); }
+    @media (max-width: 680px) {
+      .exp-item { grid-template-columns: 1fr; gap: 0.8rem; }
+    }
+    .exp-meta {}
+    .exp-date {
+      font-family: 'DM Mono', monospace; font-size: 0.68rem;
+      color: var(--accent); letter-spacing: 0.1em; text-transform: uppercase;
+    }
+    .exp-org {
+      font-size: 0.82rem; color: var(--muted); margin-top: 0.3rem;
+    }
+    .exp-role {
+      font-family: 'Cormorant Garamond', serif;
+      font-size: 1.3rem; font-weight: 400; margin-bottom: 0.8rem;
+    }
+    .exp-bullets {
+      list-style: none; color: var(--muted);
+      font-size: 0.86rem; line-height: 1.8;
+    }
+    .exp-bullets li { padding-left: 1rem; position: relative; margin-bottom: 0.3rem; }
+    .exp-bullets li::before {
+      content: '—'; position: absolute; left: 0; color: var(--accent);
+    }
+
+    /* ─── SKILLS ───────────────────────────────────────── */
+    #skills { background: var(--surface); }
+
+    .skills-grid {
+      display: grid; grid-template-columns: repeat(auto-fill, minmax(220px, 1fr));
+      gap: 1rem;
+    }
+    .skill-group {
+      border: 1px solid var(--border); border-radius: 4px;
+      padding: 1.5rem; transition: border-color 0.25s;
+    }
+    .skill-group:hover { border-color: var(--accent); }
+    .skill-group-name {
+      font-family: 'DM Mono', monospace; font-size: 0.65rem;
+      letter-spacing: 0.12em; text-transform: uppercase;
+      color: var(--accent); margin-bottom: 1rem;
+    }
+    .skill-items {
+      display: flex; flex-wrap: wrap; gap: 0.4rem;
+    }
+    .skill-pill {
+      font-size: 0.78rem; padding: 0.3rem 0.7rem;
+      border-radius: 2px; background: var(--tag-bg); color: var(--text);
+    }
+
+    /* ─── CONTACT ──────────────────────────────────────── */
+    #contact {
+      text-align: center; padding-top: clamp(4rem, 8vh, 7rem);
+      padding-bottom: clamp(4rem, 8vh, 7rem);
+    }
+    .contact-tagline {
+      font-family: 'Cormorant Garamond', serif;
+      font-size: clamp(2.2rem, 5vw, 4.5rem);
+      font-weight: 300; font-style: italic;
+      line-height: 1.15; margin-bottom: 2.5rem;
+    }
+    .contact-tagline em { color: var(--accent); font-style: normal; }
+    .contact-links {
+      display: flex; justify-content: center; gap: 1.5rem; flex-wrap: wrap;
+    }
+
+    /* ─── FOOTER ───────────────────────────────────────── */
+    footer {
+      padding: 2rem clamp(1.5rem, 7vw, 7rem);
+      border-top: 1px solid var(--border);
+      display: flex; align-items: center; justify-content: space-between;
+      font-family: 'DM Mono', monospace; font-size: 0.65rem;
+      letter-spacing: 0.08em; text-transform: uppercase;
+      color: var(--muted);
+    }
+
+    /* ─── ANIMATIONS ───────────────────────────────────── */
+    @keyframes fadeUp {
+      from { opacity: 0; transform: translateY(22px); }
+      to   { opacity: 1; transform: translateY(0); }
+    }
+    @keyframes fadeIn {
+      from { opacity: 0; }
+      to   { opacity: 1; }
+    }
+
+    .reveal {
+      opacity: 0; transform: translateY(20px);
+      transition: opacity 0.6s ease, transform 0.6s ease;
+    }
+    .reveal.visible { opacity: 1; transform: none; }
+
+    /* ─── MOBILE NAV ───────────────────────────────────── */
+    @media (max-width: 600px) {
+      .nav-links { display: none; }
+    }
+  </style>
+</head>
+<body data-theme="dark">
+
+<!-- ── NAV ────────────────────────────────────────────── -->
+<nav>
+  <a class="nav-logo" href="#hero">NM<span>.</span></a>
+  <ul class="nav-links">
+    <li><a href="#about">About</a></li>
+    <li><a href="#projects">Projects</a></li>
+    <li><a href="#experience">Experience</a></li>
+    <li><a href="#skills">Skills</a></li>
+    <li><a href="#contact">Contact</a></li>
+  </ul>
+  <div class="theme-switcher" title="Change theme">
+    <div class="theme-dot active" data-t="default" onclick="setTheme('default',this)"></div>
+    <div class="theme-dot"        data-t="dark"    onclick="setTheme('dark',this)"></div>
+  </div>
+</nav>
+
+<!-- ── HERO ───────────────────────────────────────────── -->
+<section id="hero">
+  <div class="hero-bg">
+    <svg viewBox="0 0 1200 800" preserveAspectRatio="xMidYMid slice" xmlns="http://www.w3.org/2000/svg">
+      <defs>
+        <radialGradient id="g1" cx="70%" cy="30%">
+          <stop offset="0%" stop-color="var(--accent)" stop-opacity="0.18"/>
+          <stop offset="100%" stop-color="transparent"/>
+        </radialGradient>
+        <radialGradient id="g2" cx="20%" cy="80%">
+          <stop offset="0%" stop-color="var(--accent2)" stop-opacity="0.12"/>
+          <stop offset="100%" stop-color="transparent"/>
+        </radialGradient>
+      </defs>
+      <rect width="100%" height="100%" fill="url(#g1)"/>
+      <rect width="100%" height="100%" fill="url(#g2)"/>
+      <line x1="0" y1="400" x2="1200" y2="400" stroke="var(--accent)" stroke-width="0.4" opacity="0.2"/>
+      <line x1="600" y1="0" x2="600" y2="800" stroke="var(--accent)" stroke-width="0.4" opacity="0.2"/>
+      <circle cx="900" cy="200" r="180" fill="none" stroke="var(--accent)" stroke-width="0.5" opacity="0.15"/>
+      <circle cx="900" cy="200" r="300" fill="none" stroke="var(--accent)" stroke-width="0.3" opacity="0.08"/>
+    </svg>
+  </div>
+  <div class="hero-content">
+    <p class="hero-eyebrow">UX Researcher &amp; Developer</p>
+    <h1 class="hero-name">Nishka<br><em>Mathew</em></h1>
+    <p class="hero-title">Human-Centered Computing · Charlotte, NC</p>
+    <p class="hero-desc">
+      CS + Psychology dual-degree student at UNC Charlotte bridging data, design, and human behavior — 
+      from published privacy research to award-winning hackathon builds.
+    </p>
+    <div class="hero-cta">
+      <a href="#projects" class="btn btn-primary">View Projects</a>
+      <a href="mailto:nishkamathew2@gmail.com" class="btn btn-outline">Get in Touch</a>
+    </div>
+  </div>
+  <div class="scroll-hint">
+    <div class="scroll-line"></div>
+    <span>Scroll</span>
+  </div>
+</section>
+
+<!-- ── ABOUT ──────────────────────────────────────────── -->
+<section id="about">
+  <div class="section-header reveal">
+    <span class="section-num">01</span>
+    <h2 class="section-title">About</h2>
+    <div class="section-line"></div>
+  </div>
+  <div class="about-grid" style="grid-template-columns: 1fr; max-width: 680px;">
+    <div class="about-text reveal">
+      <p>I'm a dual-degree student pursuing Computer Science and Psychology at UNC Charlotte (GPA 3.8, Chancellor's List), graduating with a deep interest in human-centered AI, UX research, and building tools that make data understandable.</p>
+      <p>My work spans academic research — including a published paper at COMPASS 2025 — to hackathon-winning platforms and machine learning projects. I love the space where rigorous analysis meets intuitive design.</p>
+      <p>Currently seeking roles in UX research, product, or software development where I can apply both my technical and behavioral science foundations.</p>
+    </div>
+  </div>
+</section>
+
+<!-- ── PROJECTS ────────────────────────────────────────── -->
+<section id="projects">
+  <div class="section-header reveal">
+    <span class="section-num">02</span>
+    <h2 class="section-title">Projects</h2>
+    <div class="section-line"></div>
+  </div>
+
+  <div class="projects-grid">
+
+    <!-- Pearl Hacks -->
+    <div class="project-card reveal">
+      <div class="project-icon">🏆</div>
+      <div class="project-badge">1st Place</div>
+      <div class="project-name">Pearl Hacks 2025</div>
+      <div class="project-desc">
+        A responsive mentorship platform connecting industry professionals, researchers, and aspiring students through structured mentorship, collaborative research sharing, and daily career-focused Q&amp;A — device-agnostic and accessible. Sponsored prize winner by Qorvo.
+      </div>
+      <div class="project-tags">
+        <span class="tag">HTML/CSS</span>
+        <span class="tag">JavaScript</span>
+        <span class="tag">UX Design</span>
+        <span class="tag">Hackathon</span>
+      </div>
+      <div class="project-links">
+        <a href="#" class="project-link">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M9 19c-5 1.5-5-2.5-7-3m14 6v-3.87a3.37 3.37 0 0 0-.94-2.61c3.14-.35 6.44-1.54 6.44-7A5.44 5.44 0 0 0 20 4.77 5.07 5.07 0 0 0 19.91 1S18.73.65 16 2.48a13.38 13.38 0 0 0-7 0C6.27.65 5.09 1 5.09 1A5.07 5.07 0 0 0 5 4.77a5.44 5.44 0 0 0-1.5 3.78c0 5.42 3.3 6.61 6.44 7A3.37 3.37 0 0 0 9 18.13V22"/></svg>
+          GitHub
+        </a>
+        <a href="#" class="project-link">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"/><polyline points="15 3 21 3 21 9"/><line x1="10" y1="14" x2="21" y2="3"/></svg>
+          Live Demo
+        </a>
+      </div>
+    </div>
+
+    <!-- Microalgae Predictor -->
+    <div class="project-card reveal">
+      <div class="project-icon">🌱</div>
+      <div class="project-name">AI Microalgae Biomass Predictor</div>
+      <div class="project-desc">
+        Predictive ML models forecasting microalgae biomass growth for EcoClosure's Biochromic Window systems using multivariate environmental sensor data. Tested linear, polynomial, logarithmic &amp; random forest regressions on 9,784+ data points with an interactive 14-day visualization dashboard.
+      </div>
+      <div class="project-tags">
+        <span class="tag">Python</span>
+        <span class="tag">Machine Learning</span>
+        <span class="tag">Data Visualization</span>
+        <span class="tag">Human-Centered AI</span>
+      </div>
+      <div class="project-links">
+        <a href="#" class="project-link">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M9 19c-5 1.5-5-2.5-7-3m14 6v-3.87a3.37 3.37 0 0 0-.94-2.61c3.14-.35 6.44-1.54 6.44-7A5.44 5.44 0 0 0 20 4.77 5.07 5.07 0 0 0 19.91 1S18.73.65 16 2.48a13.38 13.38 0 0 0-7 0C6.27.65 5.09 1 5.09 1A5.07 5.07 0 0 0 5 4.77a5.44 5.44 0 0 0-1.5 3.78c0 5.42 3.3 6.61 6.44 7A3.37 3.37 0 0 0 9 18.13V22"/></svg>
+          GitHub
+        </a>
+      </div>
+    </div>
+
+    <!-- CinemaQuest -->
+    <div class="project-card reveal">
+      <div class="project-icon">🎬</div>
+      <div class="project-name">CinemaQuest</div>
+      <div class="project-desc">
+        iOS movie discovery and watchlist app built with Xcode and Swift. Integrates the TMDB API for real-time movie data, features an intuitive UIKit interface with async image loading (Nuke), and persistent user data across sessions.
+      </div>
+      <div class="project-tags">
+        <span class="tag">Swift</span>
+        <span class="tag">Xcode</span>
+        <span class="tag">UIKit</span>
+        <span class="tag">TMDB API</span>
+        <span class="tag">iOS</span>
+      </div>
+      <div class="project-links">
+        <a href="#" class="project-link">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M9 19c-5 1.5-5-2.5-7-3m14 6v-3.87a3.37 3.37 0 0 0-.94-2.61c3.14-.35 6.44-1.54 6.44-7A5.44 5.44 0 0 0 20 4.77 5.07 5.07 0 0 0 19.91 1S18.73.65 16 2.48a13.38 13.38 0 0 0-7 0C6.27.65 5.09 1 5.09 1A5.07 5.07 0 0 0 5 4.77a5.44 5.44 0 0 0-1.5 3.78c0 5.42 3.3 6.61 6.44 7A3.37 3.37 0 0 0 9 18.13V22"/></svg>
+          GitHub
+        </a>
+      </div>
+    </div>
+
+    <!-- COMPASS Research -->
+    <div class="project-card reveal">
+      <div class="project-icon">📄</div>
+      <div class="project-badge">Published</div>
+      <div class="project-name">Privacy Research — COMPASS 2025</div>
+      <div class="project-desc">
+        Co-authored paper published to ACM COMPASS 2025: <em>Privacy on the Move: Understanding Educational Migrants' Social Media Practices through CPM Theory.</em> Involved 25+ semi-structured interviews across 14 countries, inductive coding to surface 5 key themes, and quantitative analysis in IBM SPSS.
+      </div>
+      <div class="project-tags">
+        <span class="tag">UX Research</span>
+        <span class="tag">Qualitative Methods</span>
+        <span class="tag">IBM SPSS</span>
+        <span class="tag">Privacy</span>
+        <span class="tag">Published</span>
+      </div>
+      <div class="project-links">
+        <a href="#" class="project-link">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"/><polyline points="15 3 21 3 21 9"/><line x1="10" y1="14" x2="21" y2="3"/></svg>
+          Read Paper
+        </a>
+      </div>
+    </div>
+
+  </div>
+</section>
+
+<!-- ── EXPERIENCE ──────────────────────────────────────── -->
+<section id="experience">
+  <div class="section-header reveal">
+    <span class="section-num">03</span>
+    <h2 class="section-title">Experience</h2>
+    <div class="section-line"></div>
+  </div>
+  <div class="exp-list">
+
+    <div class="exp-item reveal">
+      <div class="exp-meta">
+        <div class="exp-date">May 2024 – Dec 2025</div>
+        <div class="exp-org">SPEX Lab · UNC Charlotte</div>
+      </div>
+      <div>
+        <div class="exp-role">Research Intern</div>
+        <ul class="exp-bullets">
+          <li>Co-authored paper published to ACM COMPASS 2025 on privacy practices of international students</li>
+          <li>Conducted 25+ semi-structured interviews across 14 countries</li>
+          <li>Analyzed qualitative data via inductive coding, identifying 5 key themes</li>
+          <li>Used IBM SPSS for quantitative analysis; produced 10+ visualizations of findings</li>
+        </ul>
+      </div>
+    </div>
+
+    <div class="exp-item reveal">
+      <div class="exp-meta">
+        <div class="exp-date">Jan 2023 – May 2024</div>
+        <div class="exp-org">UNC Charlotte</div>
+      </div>
+      <div>
+        <div class="exp-role">Teaching Assistant</div>
+        <ul class="exp-bullets">
+          <li>Supported 200+ students across College Algebra, Research Methodology I &amp; II</li>
+          <li>Designed study guides and workshops that improved performance by 12–15%</li>
+          <li>Guided 30+ student research projects through mock IRB submission process</li>
+        </ul>
+      </div>
+    </div>
+
+  </div>
+</section>
+
+<!-- ── SKILLS ──────────────────────────────────────────── -->
+<section id="skills">
+  <div class="section-header reveal">
+    <span class="section-num">04</span>
+    <h2 class="section-title">Skills</h2>
+    <div class="section-line"></div>
+  </div>
+  <div class="skills-grid">
+    <div class="skill-group reveal">
+      <div class="skill-group-name">Languages</div>
+      <div class="skill-items">
+        <span class="skill-pill">Python</span>
+        <span class="skill-pill">Java</span>
+        <span class="skill-pill">SQL</span>
+        <span class="skill-pill">HTML/CSS</span>
+        <span class="skill-pill">Swift</span>
+        <span class="skill-pill">JavaScript</span>
+      </div>
+    </div>
+    <div class="skill-group reveal">
+      <div class="skill-group-name">Design & Research</div>
+      <div class="skill-items">
+        <span class="skill-pill">Figma</span>
+        <span class="skill-pill">Qualitative Coding</span>
+        <span class="skill-pill">UX Methods</span>
+        <span class="skill-pill">Qualtrics</span>
+        <span class="skill-pill">IRB Process</span>
+      </div>
+    </div>
+    <div class="skill-group reveal">
+      <div class="skill-group-name">Data & Analytics</div>
+      <div class="skill-items">
+        <span class="skill-pill">IBM SPSS</span>
+        <span class="skill-pill">Tableau</span>
+        <span class="skill-pill">Power BI</span>
+        <span class="skill-pill">Machine Learning</span>
+        <span class="skill-pill">Data Mining</span>
+      </div>
+    </div>
+    <div class="skill-group reveal">
+      <div class="skill-group-name">Tools & Platforms</div>
+      <div class="skill-items">
+        <span class="skill-pill">Xcode</span>
+        <span class="skill-pill">Overleaf</span>
+        <span class="skill-pill">GitHub</span>
+        <span class="skill-pill">Microsoft Office</span>
+        <span class="skill-pill">Kaggle</span>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ── CONTACT ─────────────────────────────────────────── -->
+<section id="contact">
+  <p class="contact-tagline reveal">
+    Let's build something<br><em>worth remembering.</em>
+  </p>
+  <div class="contact-links reveal">
+    <a href="mailto:nishkamathew2@gmail.com" class="btn btn-primary">nishkamathew2@gmail.com</a>
+    <a href="https://linkedin.com/in/nishka-mathew" target="_blank" class="btn btn-outline">LinkedIn</a>
+    <a href="tel:9196335942" class="btn btn-outline">(919) 633-5942</a>
+  </div>
+</section>
+
+<!-- ── FOOTER ──────────────────────────────────────────── -->
+<footer>
+  <span>© 2025 Nishka Mathew</span>
+  <span>UNC Charlotte · CS + Psychology</span>
+</footer>
+
+<!-- ── JS ──────────────────────────────────────────────── -->
+<script>
+  /* Theme switcher */
+  function setTheme(t, el) {
+    document.body.setAttribute('data-theme', t);
+    document.querySelectorAll('.theme-dot').forEach(d => d.classList.remove('active'));
+    el.classList.add('active');
+    localStorage.setItem('nm-theme', t);
+  }
+  const saved = localStorage.getItem('nm-theme');
+  if (saved) {
+    document.body.setAttribute('data-theme', saved);
+    document.querySelectorAll('.theme-dot').forEach(d => {
+      d.classList.toggle('active', d.dataset.t === saved);
+    });
+  } else {
+    // Default: light gold
+    document.body.removeAttribute('data-theme');
+  }
+
+  /* Scroll reveal */
+  const observer = new IntersectionObserver(entries => {
+    entries.forEach(e => { if (e.isIntersecting) { e.target.classList.add('visible'); observer.unobserve(e.target); }});
+  }, { threshold: 0.12 });
+  document.querySelectorAll('.reveal').forEach(el => observer.observe(el));
+</script>
+</body>
+</html>
