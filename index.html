@@ -27,7 +27,7 @@
       --border:     rgba(255,255,255,0.07);
       --accent:     #c8a97e;
       --accent2:    #7ec8b4;
-      --text:       #e8e4dd;
+      --text:       #fcfbf9;
       --muted:      #7a7870;
       --tag-bg:     rgba(200,169,126,0.10);
       --tag-color:  #c8a97e;
@@ -251,6 +251,14 @@
     .project-link:hover { color: var(--accent); }
     .project-link svg { width: 12px; height: 12px; }
 
+    /* Education */
+    #education { background: var(--surface); }
+    .edu-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fill, minmax(260px, 1fr));
+      gap: 1rem;
+    }
+
     /* Experience */
     #experience .exp-list { display: flex; flex-direction: column; gap: 0; }
     .exp-item {
@@ -342,6 +350,7 @@
   <ul class="nav-links">
     <li><a href="#about"      data-section="about">About</a></li>
     <li><a href="#projects"   data-section="projects">Projects</a></li>
+    <li><a href="#education" data-section="education">Education</a></li>
     <li><a href="#experience" data-section="experience">Experience</a></li>
     <li><a href="#skills"     data-section="skills">Skills</a></li>
     <li><a href="#contact"    data-section="contact">Contact</a></li>
@@ -545,10 +554,65 @@
   </div>
 </section>
 
+<!-- Education -->
+<section id="education">
+  <div class="section-header reveal">
+    <span class="section-num">03</span>
+    <h2 class="section-title">Education</h2>
+    <div class="section-line"></div>
+  </div>
+  <div class="edu-grid">
+
+    <!-- Degree Card -->
+    <div class="skill-group reveal">
+      <div class="skill-group-name">Degree</div>
+      <p style="color: var(--text); font-size: 0.88rem; margin-bottom: 0.5rem; line-height: 1.7;">
+        University of North Carolina at Charlotte
+      </p>
+      <p style="color: var(--muted); font-size: 0.82rem; margin-bottom: 0.5rem;">
+        B.A. Computer Science &amp; B.S. Psychology
+      </p>
+      <p style="color: var(--muted); font-size: 0.82rem; margin-bottom: 1rem;">
+        Graduated December 2025 &nbsp;·&nbsp; GPA 3.83
+      </p>
+      <div class="skill-items">
+        <span class="skill-pill">Chancellor's List — Fall 2022 to Fall 2023, Fall 2024, Fall 2025</span>
+        <span class="skill-pill">Dean's List — Spring 2024, Spring 2025</span>
+      </div>
+    </div>
+
+    <!-- Coursework Card -->
+    <div class="skill-group reveal">
+      <div class="skill-group-name">Relevant Coursework</div>
+      <div class="skill-items">
+        <span class="skill-pill">Data Mining</span>
+        <span class="skill-pill">Human-Centered AI</span>
+        <span class="skill-pill">UX Methods</span>
+        <span class="skill-pill">Research Methodology II</span>
+        <span class="skill-pill">iOS Development</span>
+        <span class="skill-pill">Design Prototyping</span>
+        <span class="skill-pill">Data Structures &amp; Algorithms</span>
+        <span class="skill-pill">Cognitive Science</span>
+        <span class="skill-pill">Elements of Statistics II</span>
+      </div>
+    </div>
+
+    <!-- Certifications Card -->
+    <div class="skill-group reveal">
+      <div class="skill-group-name">Certifications</div>
+      <div class="skill-items">
+        <span class="skill-pill">CITI Human Subjects Research</span>
+        <span class="skill-pill">Microsoft Office</span>
+      </div>
+    </div>
+
+  </div>
+</section>
+
 <!-- Experience -->
 <section id="experience">
   <div class="section-header reveal">
-    <span class="section-num">03</span>
+    <span class="section-num">04</span>
     <h2 class="section-title">Experience</h2>
     <div class="section-line"></div>
   </div>
@@ -612,7 +676,7 @@
 <!-- Skills -->
 <section id="skills">
   <div class="section-header reveal">
-    <span class="section-num">04</span>
+    <span class="section-num">05</span>
     <h2 class="section-title">Skills</h2>
     <div class="section-line"></div>
   </div>
