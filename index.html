@@ -166,6 +166,29 @@
     /* About */
     .about-text p { color: var(--muted); margin-bottom: 1.2rem; line-height: 1.85; }
     .about-text p:last-child { margin-bottom: 0; }
+    /* About photo grid */
+    .about-grid-photo {
+      display: grid;
+      grid-template-columns: 1fr 220px;
+      gap: 4rem;
+      align-items: start;
+      max-width: 900px;
+    }
+    .about-photo {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      padding-top: 0.5rem;
+    }
+    @media (max-width: 680px) {
+      .about-grid-photo {
+        grid-template-columns: 1fr;
+        gap: 2rem;
+      }
+      .about-photo {
+        order: -1;
+      }
+    }
 
     /* Projects */
     #projects { background: var(--surface); }
@@ -372,12 +395,19 @@
     <h2 class="section-title">About</h2>
     <div class="section-line"></div>
   </div>
-  <div style="max-width: 680px;">
+  <div class="about-grid-photo">
     <div class="about-text reveal">
       <p>I graduated with a degree in Computer Science and Psychology from UNC Charlotte with a 3.83 GPA. My interests sit at the intersection of behavioral science, UX research, and machine learning because I believe the most effective data systems are built on a thorough understanding of human behavior.</p>
       <p>My research foundation began in my psychology courses and expanded when I became a Teaching Assistant for Research Methodology II, guiding students through the full research pipeline. I then applied that foundation in the Security, Privacy, and User Experience (SPEX) Lab, supporting a PhD student starting from a literature review to publishing a peer-reviewed research paper in ACM COMPASS 2025.</p>
       <p>On the technical side, my machine learning and data analytics work began in my Data Mining course and moved quickly into a real-world setting. Developing predictive models for microalgae biomass growth using live sensor data, and building interactive visualizations to make those predictions accessible to non-technical stakeholders.</p>
       <p>Most people are researchers or developers. I graduated learning why you need both. You have to understand people well enough to build systems that actually work for them.</p>
+    </div>
+    <div class="about-photo reveal">
+      <img
+        src="assets/profile.jpg"
+        alt="Nishka Mathew"
+        style="width: 180px; height: 180px; border-radius: 50%; object-fit: cover; border: 3px solid var(--accent);"
+      />
     </div>
   </div>
 </section>
@@ -525,8 +555,26 @@
 
     <div class="exp-item reveal">
       <div class="exp-meta">
+        <div class="exp-date">September 2024 – Current</div>
+        <div class="exp-org">Jinya Ramen Bar</div>
+      </div>
+      <div>
+        <div class="exp-role">Shift Lead, Server &amp; Bartender </div>
+        <ul class="exp-bullets">
+          <li>Led and coordinated front-of-house operations during high-volume service periods, managing a team of staff to ensure efficient workflow and consistent service delivery</li>
+          <li>Developed strong stakeholder communication skills by serving as the primary point of contact between guests, kitchen staff, and management to resolve issues in real time</li>
+          <li>Applied data-informed decision making by tracking table turnover, inventory levels, and peak service patterns to optimize resource allocation during shifts</li>
+          <li>Demonstrated adaptability and composure under pressure in a fast-paced, high-demand environment with competing priorities</li>
+          <li>Onboarded and mentored new team members on service standards, operational procedures, and guest experience best practices</li>
+          <li>Cultivated relationship management skills through consistent, personalized guest interactions that drove repeat business and positive reviews</li>
+        </ul>
+      </div>
+    </div>
+
+    <div class="exp-item reveal">
+      <div class="exp-meta">
         <div class="exp-date">May 2024 – July 2025</div>
-        <div class="exp-org">SPEX Lab · UNC Charlotte</div>
+        <div class="exp-org">Security Privacy and User Experience (SPEX) Lab</div>
       </div>
       <div>
         <div class="exp-role">Research Intern</div>
