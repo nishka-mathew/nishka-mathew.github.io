@@ -486,15 +486,23 @@
     .reveal-stagger.visible > *:nth-child(4) { opacity:1; transform:none; transition-delay:0.24s; }
     .reveal-stagger.visible > *:nth-child(5) { opacity:1; transform:none; transition-delay:0.32s; }
 
-    /* Rotating words */
-    .rotating-words { position: relative; height: 1.6em; overflow: hidden; display: inline-block; vertical-align: bottom; }
-    .rotating-words span {
-      position: absolute; top: 0; left: 0; white-space: nowrap;
-      opacity: 0; animation: rotateWord 9s linear infinite;
+    /* Rotating words — JS driven */
+    .rotating-words { display: inline-block; }
+    .rotating-word {
+      display: none;
+      color: var(--accent2);
+      font-family: 'Lora', serif;
+      font-style: italic;
+      font-size: 1.15rem;
     }
-    .rotating-words span:nth-child(1) { animation-delay: 0s; animation-fill-mode: both; }
-    .rotating-words span:nth-child(2) { animation-delay: 3s; animation-fill-mode: both; }
-    .rotating-words span:nth-child(3) { animation-delay: 6s; animation-fill-mode: both; }
+    .rotating-word.active {
+      display: inline;
+      animation: wordFade 0.5s ease forwards;
+    }
+    @keyframes wordFade {
+      from { opacity: 0; transform: translateY(6px); }
+      to   { opacity: 1; transform: translateY(0); }
+    }
   </style>
 </head>
 <body>
@@ -540,9 +548,9 @@
       <span class="hero-rotating-label"></span>
       <span class="hero-rotating">
         <span class="rotating-words">
-          <span>Research-Led Designer</span>
-          <span>Human-Centered Technologist</span>
-          <span>Empathy-First Builder</span>
+          <span class="rotating-word active">Researcher & Designer</span>
+          <span class="rotating-word">Human-Centered Technologist</span>
+          <span class="rotating-word">Empathy-First Builder</span>
         </span>
       </span>
     </div>
@@ -667,7 +675,7 @@
         <span class="tag">Heuristic Evaluation</span>
       </div>
       <div class="project-links">
-        <a href="mvr.html" class="project-link">
+        <a href="mvr.html" class="project-link" onclick="event.stopPropagation()">
           <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"/><polyline points="15 3 21 3 21 9"/><line x1="10" y1="14" x2="21" y2="3"/></svg>
           View Case Study
         </a>
@@ -801,7 +809,6 @@
   </div>
   <div class="exp-list">
 
-    <div class="exp-item reveal">
     <div class="exp-item reveal">
       <div>
         <div class="exp-date">Sep 2024 – Present</div>
