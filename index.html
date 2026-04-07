@@ -4,7 +4,6 @@
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Nishka Mathew — Portfolio</title>
-<<<<<<< HEAD
   <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,600;1,300;1,400&family=DM+Mono:wght@300;400;500&family=DM+Sans:wght@300;400;500&family=Lora:ital,wght@0,400;1,400;1,500&display=swap" rel="stylesheet" />
   <style>
     /* ── Design Tokens ── */
@@ -315,214 +314,10 @@
     .project-card {
       background: var(--bg); padding: 2.2rem;
       display: flex; flex-direction: column; gap: 1rem;
-=======
-  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,600;1,300;1,400&family=DM+Mono:wght@300;400;500&family=DM+Sans:wght@300;400;500&display=swap" rel="stylesheet" />
-  <style>
-    /* Theme Variables */
-    :root {
-      --bg:         #f7f0e3;
-      --surface:    #efe6d0;
-      --border:     rgba(120,75,30,0.14);
-      --accent:     #7a4515;
-      --accent2:    #b5813a;
-      --text:       #2a1a0a;
-      --muted:      #8a6a4a;
-      --tag-bg:     rgba(122,69,21,0.10);
-      --tag-color:  #7a4515;
-      --card-hover: rgba(122,69,21,0.05);
-    }
-
-    /* Dark Theme */
-    [data-theme="dark"] {
-      --bg:         #252526;
-      --surface:    #141417;
-      --border:     rgba(255,255,255,0.07);
-      --accent:     #c8a97e;
-      --accent2:    #7ec8b4;
-      --text:       #fcfbf9;
-      --muted:      #7a7870;
-      --tag-bg:     rgba(200,169,126,0.10);
-      --tag-color:  #c8a97e;
-      --card-hover: rgba(200,169,126,0.04);
-    }
-
-    /* Reset and Base */
-    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
-    html { scroll-behavior: smooth; }
-    body {
-      background: var(--bg);
-      color: var(--text);
-      font-family: 'DM Sans', sans-serif;
-      font-weight: 300;
-      font-size: 15px;
-      line-height: 1.7;
-      transition: background 0.4s, color 0.4s;
-      cursor: default;
-    }
-    ::selection { background: var(--accent); color: var(--bg); }
-
-    /* Navigation */
-    nav {
-      position: fixed; top: 0; left: 0; right: 0; z-index: 100;
-      display: flex; align-items: center; justify-content: space-between;
-      padding: 0 clamp(1.5rem, 5vw, 4rem);
-      height: 64px;
-      background: rgba(247,240,227,0.90);
-      backdrop-filter: blur(16px);
-      border-bottom: 1px solid var(--border);
-      transition: background 0.4s;
-    }
-    [data-theme="dark"] nav { background: rgba(13,13,15,0.85); }
-
-    .nav-logo {
-      font-family: 'Cormorant Garamond', serif;
-      font-size: 1.25rem; font-weight: 400; letter-spacing: 0.04em;
-      color: var(--text); text-decoration: none;
-    }
-    .nav-logo span { color: var(--accent); }
-
-    .nav-links {
-      display: flex; gap: 2rem; list-style: none; align-items: center;
-    }
-    .nav-links a {
-      color: var(--muted); text-decoration: none;
-      font-size: 0.78rem; letter-spacing: 0.08em; text-transform: uppercase;
-      transition: color 0.2s;
-    }
-    .nav-links a:hover { color: var(--text); }
-    .nav-links a.active { color: var(--accent); border: 1px solid var(--accent); padding: 0.3rem 0.7rem; border-radius: 3px; }
-    
-
-    /* Theme Switcher */
-    .theme-switcher { display: flex; gap: 6px; align-items: center; }
-    .theme-dot {
-      width: 14px; height: 14px; border-radius: 50%;
-      cursor: pointer; border: 2px solid transparent;
-      transition: transform 0.2s, border-color 0.2s;
-    }
-    .theme-dot:hover { transform: scale(1.2); }
-    .theme-dot.active { border-color: var(--text); }
-    .theme-dot[data-t="default"] { background: #c8a07a; border: 1.5px solid #7a4515; }
-    .theme-dot[data-t="dark"]    { background: #0d0d0f; border: 1.5px solid #c8a97e; }
-
-    /* Hero */
-    #hero {
-      min-height: 100vh;
-      display: flex; flex-direction: column; justify-content: flex-end;
-      padding: 0 clamp(1.5rem, 7vw, 7rem) clamp(4rem, 8vh, 7rem);
-      position: relative; overflow: hidden;
-    }
-    .hero-bg { position: absolute; inset: 0; z-index: 0; pointer-events: none; }
-    .hero-bg svg { width: 100%; height: 100%; opacity: 0.25; }
-    .hero-content { position: relative; z-index: 1; }
-
-    .hero-eyebrow {
-      font-family: 'DM Mono', monospace;
-      font-size: 0.72rem; letter-spacing: 0.16em;
-      text-transform: uppercase; color: var(--accent);
-      margin-bottom: 1.2rem;
-      opacity: 0; animation: fadeUp 0.7s 0.2s forwards;
-    }
-    .hero-name {
-      font-family: 'Cormorant Garamond', serif;
-      font-size: clamp(3.5rem, 9vw, 8.5rem);
-      font-weight: 300; line-height: 0.95; letter-spacing: -0.02em;
-      margin-bottom: 0.3rem;
-      opacity: 0; animation: fadeUp 0.7s 0.35s forwards;
-    }
-    .hero-name em { font-style: italic; color: var(--accent); }
-    .hero-title {
-      font-family: 'Cormorant Garamond', serif;
-      font-size: clamp(1.2rem, 3vw, 2.2rem);
-      font-weight: 300; font-style: italic; color: var(--muted);
-      margin-bottom: 2rem;
-      opacity: 0; animation: fadeUp 0.7s 0.5s forwards;
-    }
-    .hero-desc {
-      max-width: 520px;
-      color: var(--muted); font-size: 0.92rem; line-height: 1.8;
-      margin-bottom: 2.5rem;
-      opacity: 0; animation: fadeUp 0.7s 0.65s forwards;
-    }
-    .hero-cta {
-      display: flex; gap: 1rem; flex-wrap: wrap;
-      opacity: 0; animation: fadeUp 0.7s 0.8s forwards;
-    }
-    .btn {
-      display: inline-flex; align-items: center; gap: 0.5rem;
-      padding: 0.7rem 1.6rem;
-      font-size: 0.78rem; letter-spacing: 0.1em; text-transform: uppercase;
-      text-decoration: none; border-radius: 2px;
-      transition: all 0.25s; cursor: pointer; border: none;
-    }
-    .btn-primary { background: var(--accent); color: var(--bg); font-weight: 500; }
-    .btn-primary:hover { opacity: 0.85; transform: translateY(-2px); }
-    .btn-outline { background: transparent; color: var(--text); border: 1px solid var(--border); }
-    .btn-outline:hover { border-color: var(--accent); color: var(--accent); transform: translateY(-2px); }
-
-    /* Section Wrapper */
-    section { padding: clamp(5rem, 10vh, 9rem) clamp(1.5rem, 7vw, 7rem); }
-    .section-header {
-      display: flex; align-items: baseline; gap: 1.5rem; margin-bottom: 4rem;
-    }
-    .section-num {
-      font-family: 'DM Mono', monospace; font-size: 0.7rem;
-      color: var(--accent); letter-spacing: 0.1em;
-    }
-    .section-title {
-      font-family: 'Cormorant Garamond', serif;
-      font-size: clamp(2rem, 4vw, 3.2rem); font-weight: 300; letter-spacing: -0.01em;
-    }
-    .section-line { flex: 1; height: 1px; background: var(--border); }
-
-    /* About */
-    .about-text p { color: var(--muted); margin-bottom: 1.2rem; line-height: 1.85; }
-    .about-text p:last-child { margin-bottom: 0; }
-    /* About photo grid */
-    .about-grid-photo {
-      display: grid;
-      grid-template-columns: 1fr 220px;
-      gap: 4rem;
-      align-items: start;
-      max-width: 900px;
-    }
-    .about-photo {
-      display: flex;
-      flex-direction: column;
-      align-items: center;
-      padding-top: 0.5rem;
-    }
-    @media (max-width: 680px) {
-      .about-grid-photo {
-        grid-template-columns: 1fr;
-        gap: 2rem;
-      }
-      .about-photo {
-        order: -1;
-      }
-    }
-
-    /* Projects */
-    #projects { background: var(--surface); }
-    .projects-grid {
-      display: grid;
-      grid-template-columns: repeat(auto-fill, minmax(340px, 1fr));
-      gap: 1.5px;
-      border: 1.5px solid var(--border);
-      border-radius: 6px; overflow: hidden;
-    }
-    .project-card {
-      background: var(--bg);
-      padding: 2.2rem;
-      display: flex; flex-direction: column; gap: 1rem;
-      border-right: 1.5px solid var(--border);
-      border-bottom: 1.5px solid var(--border);
->>>>>>> d3c31719214a1fea671b400cf1d697ddf06c748f
       position: relative; overflow: hidden;
       transition: background 0.25s;
     }
     .project-card::before {
-<<<<<<< HEAD
       content: ''; position: absolute; top: 0; left: 0; right: 0;
       height: 2px; background: var(--accent);
       transform: scaleX(0); transform-origin: left;
@@ -549,31 +344,10 @@
       font-family: 'DM Mono', monospace; font-size: 0.58rem;
       letter-spacing: 0.12em; text-transform: uppercase;
       padding: 0.2rem 0.55rem; border-radius: 2px;
-=======
-      content: '';
-      position: absolute; top: 0; left: 0; right: 0;
-      height: 2px; background: var(--accent);
-      transform: scaleX(0); transform-origin: left;
-      transition: transform 0.35s ease;
-    }
-    .project-card:hover { background: var(--card-hover); }
-    .project-card:hover::before { transform: scaleX(1); }
-    .project-icon {
-      width: 40px; height: 40px; border-radius: 8px;
-      display: flex; align-items: center; justify-content: center;
-      background: var(--tag-bg); font-size: 1.2rem;
-    }
-    .project-badge {
-      position: absolute; top: 1.5rem; right: 1.5rem;
-      font-family: 'DM Mono', monospace;
-      font-size: 0.6rem; letter-spacing: 0.12em; text-transform: uppercase;
-      padding: 0.2rem 0.6rem; border-radius: 2px;
->>>>>>> d3c31719214a1fea671b400cf1d697ddf06c748f
       background: var(--accent); color: var(--bg);
     }
     .project-name {
       font-family: 'Cormorant Garamond', serif;
-<<<<<<< HEAD
       font-size: 1.45rem; font-weight: 400; letter-spacing: -0.01em;
       padding-right: 3rem;
     }
@@ -588,27 +362,11 @@
     .project-link {
       font-family: 'DM Mono', monospace;
       font-size: 0.68rem; letter-spacing: 0.07em; text-transform: uppercase;
-=======
-      font-size: 1.4rem; font-weight: 400; letter-spacing: -0.01em;
-    }
-    .project-desc { color: var(--muted); font-size: 0.88rem; line-height: 1.75; flex: 1; }
-    .project-tags { display: flex; flex-wrap: wrap; gap: 0.4rem; }
-    .tag {
-      font-family: 'DM Mono', monospace;
-      font-size: 0.62rem; letter-spacing: 0.08em;
-      padding: 0.25rem 0.6rem; border-radius: 2px;
-      background: var(--tag-bg); color: var(--tag-color);
-    }
-    .project-links { display: flex; gap: 1rem; margin-top: 0.5rem; flex-wrap: wrap; }
-    .project-link {
-      font-size: 0.72rem; letter-spacing: 0.08em; text-transform: uppercase;
->>>>>>> d3c31719214a1fea671b400cf1d697ddf06c748f
       color: var(--muted); text-decoration: none;
       display: flex; align-items: center; gap: 0.3rem;
       transition: color 0.2s;
     }
     .project-link:hover { color: var(--accent); }
-<<<<<<< HEAD
     .project-link svg { width: 11px; height: 11px; flex-shrink: 0; }
 
     /* ── Education ── */
@@ -620,20 +378,6 @@
     /* ── Experience ── */
     #experience { background: var(--surface); }
     .exp-list { display: flex; flex-direction: column; }
-=======
-    .project-link svg { width: 12px; height: 12px; }
-
-    /* Education */
-    #education { background: var(--surface); }
-    .edu-grid {
-      display: grid;
-      grid-template-columns: repeat(auto-fill, minmax(260px, 1fr));
-      gap: 1rem;
-    }
-
-    /* Experience */
-    #experience .exp-list { display: flex; flex-direction: column; gap: 0; }
->>>>>>> d3c31719214a1fea671b400cf1d697ddf06c748f
     .exp-item {
       display: grid; grid-template-columns: 200px 1fr;
       gap: 3rem; padding: 2.5rem 0;
@@ -642,63 +386,35 @@
     .exp-item:first-child { border-top: 1px solid var(--border); }
     @media (max-width: 680px) { .exp-item { grid-template-columns: 1fr; gap: 0.8rem; } }
     .exp-date {
-<<<<<<< HEAD
       font-family: 'DM Mono', monospace; font-size: 0.65rem;
       color: var(--accent); letter-spacing: 0.1em; text-transform: uppercase;
     }
     .exp-org { font-size: 0.8rem; color: var(--muted); margin-top: 0.3rem; }
-=======
-      font-family: 'DM Mono', monospace; font-size: 0.68rem;
-      color: var(--accent); letter-spacing: 0.1em; text-transform: uppercase;
-    }
-    .exp-org { font-size: 0.82rem; color: var(--muted); margin-top: 0.3rem; }
->>>>>>> d3c31719214a1fea671b400cf1d697ddf06c748f
     .exp-role {
       font-family: 'Cormorant Garamond', serif;
       font-size: 1.3rem; font-weight: 400; margin-bottom: 0.8rem;
     }
-<<<<<<< HEAD
     .exp-bullets { list-style: none; color: var(--muted); font-size: 0.84rem; line-height: 1.85; }
     .exp-bullets li { padding-left: 1.1rem; position: relative; margin-bottom: 0.3rem; }
     .exp-bullets li::before { content: '—'; position: absolute; left: 0; color: var(--accent3); }
 
     /* ── Skills ── */
     #skills { background: var(--bg); }
-=======
-    .exp-bullets {
-      list-style: none; color: var(--muted); font-size: 0.86rem; line-height: 1.8;
-    }
-    .exp-bullets li { padding-left: 1rem; position: relative; margin-bottom: 0.3rem; }
-    .exp-bullets li::before { content: '—'; position: absolute; left: 0; color: var(--accent); }
-
-    /* Skills */
-    #skills { background: var(--surface); }
->>>>>>> d3c31719214a1fea671b400cf1d697ddf06c748f
     .skills-grid {
       display: grid; grid-template-columns: repeat(auto-fill, minmax(220px, 1fr)); gap: 1rem;
     }
     .skill-group {
       border: 1px solid var(--border); border-radius: 4px;
-<<<<<<< HEAD
       padding: 1.5rem; transition: border-color 0.25s, background 0.25s;
     }
     .skill-group:hover { border-color: var(--accent3); background: var(--card-hover); }
     .skill-group-name {
       font-family: 'DM Mono', monospace; font-size: 0.62rem;
       letter-spacing: 0.14em; text-transform: uppercase;
-=======
-      padding: 1.5rem; transition: border-color 0.25s;
-    }
-    .skill-group:hover { border-color: var(--accent); }
-    .skill-group-name {
-      font-family: 'DM Mono', monospace; font-size: 0.65rem;
-      letter-spacing: 0.12em; text-transform: uppercase;
->>>>>>> d3c31719214a1fea671b400cf1d697ddf06c748f
       color: var(--accent); margin-bottom: 1rem;
     }
     .skill-items { display: flex; flex-wrap: wrap; gap: 0.4rem; }
     .skill-pill {
-<<<<<<< HEAD
       font-size: 0.77rem; padding: 0.28rem 0.65rem;
       border-radius: 2px; background: var(--tag-bg); color: var(--text);
     }
@@ -779,86 +495,29 @@
     .rotating-words span:nth-child(1) { animation-delay: 0s; animation-fill-mode: both; }
     .rotating-words span:nth-child(2) { animation-delay: 3s; animation-fill-mode: both; }
     .rotating-words span:nth-child(3) { animation-delay: 6s; animation-fill-mode: both; }
-=======
-      font-size: 0.78rem; padding: 0.3rem 0.7rem;
-      border-radius: 2px; background: var(--tag-bg); color: var(--text);
-    }
-
-    /* Contact */
-    #contact {
-      text-align: center;
-      padding-top: clamp(4rem, 8vh, 7rem);
-      padding-bottom: clamp(4rem, 8vh, 7rem);
-    }
-    .contact-tagline {
-      font-family: 'Cormorant Garamond', serif;
-      font-size: clamp(2.2rem, 5vw, 4.5rem);
-      font-weight: 300; font-style: italic;
-      line-height: 1.15; margin-bottom: 2.5rem;
-    }
-    .contact-tagline em { color: var(--accent); font-style: normal; }
-    .contact-links { display: flex; justify-content: center; gap: 1.5rem; flex-wrap: wrap; }
-
-    /* Footer */
-    footer {
-      padding: 2rem clamp(1.5rem, 7vw, 7rem);
-      border-top: 1px solid var(--border);
-      display: flex; align-items: center; justify-content: space-between;
-      font-family: 'DM Mono', monospace; font-size: 0.65rem;
-      letter-spacing: 0.08em; text-transform: uppercase; color: var(--muted);
-    }
-
-    /* Animations */
-    @keyframes fadeUp {
-      from { opacity: 0; transform: translateY(22px); }
-      to   { opacity: 1; transform: translateY(0); }
-    }
-    .reveal {
-      opacity: 0; transform: translateY(20px);
-      transition: opacity 0.6s ease, transform 0.6s ease;
-    }
-    .reveal.visible { opacity: 1; transform: none; }
-
-    @media (max-width: 600px) { .nav-links { display: none; } }
->>>>>>> d3c31719214a1fea671b400cf1d697ddf06c748f
   </style>
 </head>
 <body>
 
-<<<<<<< HEAD
 <!-- Nav -->
-=======
-<!-- Navigation -->
->>>>>>> d3c31719214a1fea671b400cf1d697ddf06c748f
 <nav>
   <a class="nav-logo" href="#hero">NM<span>.</span></a>
   <ul class="nav-links">
     <li><a href="#about"      data-section="about">About</a></li>
     <li><a href="#projects"   data-section="projects">Projects</a></li>
-<<<<<<< HEAD
     <li><a href="#education"  data-section="education">Education</a></li>
-=======
-    <li><a href="#education" data-section="education">Education</a></li>
->>>>>>> d3c31719214a1fea671b400cf1d697ddf06c748f
     <li><a href="#experience" data-section="experience">Experience</a></li>
     <li><a href="#skills"     data-section="skills">Skills</a></li>
     <li><a href="#contact"    data-section="contact">Contact</a></li>
   </ul>
-<<<<<<< HEAD
   <div class="theme-switcher">
     <div class="theme-dot active" data-t="default" onclick="setTheme('default',this)" title="Warm light"></div>
     <div class="theme-dot"        data-t="dark"    onclick="setTheme('dark',this)"    title="Dark"></div>
-=======
-  <div class="theme-switcher" title="Change theme">
-    <div class="theme-dot active" data-t="default" onclick="setTheme('default',this)"></div>
-    <div class="theme-dot"        data-t="dark"    onclick="setTheme('dark',this)"></div>
->>>>>>> d3c31719214a1fea671b400cf1d697ddf06c748f
   </div>
 </nav>
 
 <!-- Hero -->
 <section id="hero">
-<<<<<<< HEAD
   <!-- Decorative SVG background -->
   <div class="hero-deco">
     <svg width="600" height="600" style="top:-100px;right:-150px;" viewBox="0 0 600 600" fill="none" xmlns="http://www.w3.org/2000/svg">
@@ -887,42 +546,12 @@
         </span>
       </span>
     </div>
-=======
-  <div class="hero-bg">
-    <svg viewBox="0 0 1200 800" preserveAspectRatio="xMidYMid slice" xmlns="http://www.w3.org/2000/svg">
-      <defs>
-        <radialGradient id="g1" cx="70%" cy="30%">
-          <stop offset="0%" stop-color="var(--accent)" stop-opacity="0.18"/>
-          <stop offset="100%" stop-color="transparent"/>
-        </radialGradient>
-        <radialGradient id="g2" cx="20%" cy="80%">
-          <stop offset="0%" stop-color="var(--accent2)" stop-opacity="0.12"/>
-          <stop offset="100%" stop-color="transparent"/>
-        </radialGradient>
-      </defs>
-      <rect width="100%" height="100%" fill="url(#g1)"/>
-      <rect width="100%" height="100%" fill="url(#g2)"/>
-      <line x1="0" y1="400" x2="1200" y2="400" stroke="var(--accent)" stroke-width="0.4" opacity="0.2"/>
-      <line x1="600" y1="0" x2="600" y2="800" stroke="var(--accent)" stroke-width="0.4" opacity="0.2"/>
-      <circle cx="900" cy="200" r="180" fill="none" stroke="var(--accent)" stroke-width="0.5" opacity="0.15"/>
-      <circle cx="900" cy="200" r="300" fill="none" stroke="var(--accent)" stroke-width="0.3" opacity="0.08"/>
-    </svg>
-  </div>
-  <div class="hero-content">
-    <p class="hero-eyebrow">UX Researcher &amp; Data Scientist</p>
-    <h1 class="hero-name">Nishka<br><em>Mathew</em></h1>
-    <p class="hero-title">Human-Centered Computing · Charlotte, NC</p>
-    <p class="hero-desc">
-      CS + Psychology graduate from UNC Charlotte. I run the user studies that generate the data, then train the ML models that learn from it.
-    </p>
->>>>>>> d3c31719214a1fea671b400cf1d697ddf06c748f
     <div class="hero-cta">
       <a href="#projects" class="btn btn-primary">View Projects</a>
       <a href="assets/Nishka_Mathew_Resume.pdf" target="_blank" rel="noopener noreferrer" class="btn btn-outline">Resume</a>
       <a href="#contact" class="btn btn-outline">Get in Touch</a>
     </div>
   </div>
-<<<<<<< HEAD
 
   <div class="hero-right hero-pull">
     <div class="hero-pull-quote">
@@ -930,8 +559,6 @@
     </div>
     <p class="hero-pull-meta">UX Research · Human-Centered AI · Charlotte, NC</p>
   </div>
-=======
->>>>>>> d3c31719214a1fea671b400cf1d697ddf06c748f
 </section>
 
 <!-- About -->
@@ -941,7 +568,6 @@
     <h2 class="section-title">About</h2>
     <div class="section-line"></div>
   </div>
-<<<<<<< HEAD
 
   <div class="about-grid">
     <div class="about-text reveal">
@@ -992,21 +618,6 @@
       <div class="why-card-num">04</div>
       <p class="why-card-title">As a hackathon winner</p>
       <p class="why-card-text">Shipping a full product in 24 hours means knowing which corner to cut and which one will haunt you in QA. I've learned both.</p>
-=======
-  <div class="about-grid-photo">
-    <div class="about-text reveal">
-      <p>I graduated with a degree in Computer Science and Psychology from UNC Charlotte with a 3.83 GPA. My interests sit at the intersection of behavioral science, UX research, and machine learning because I believe the most effective data systems are built on a thorough understanding of human behavior.</p>
-      <p>My research foundation began in my psychology courses and expanded when I became a Teaching Assistant for Research Methodology II, guiding students through the full research pipeline. I then applied that foundation as a Research Intern in the Security, Privacy, and User Experience (SPEX) Lab, supporting a PhD student starting from a literature review to publishing a peer-reviewed research paper in ACM COMPASS 2025.</p>
-      <p>On the technical side, my machine learning and data analytics work began in my Data Mining course and moved quickly into a real-world setting. Developing predictive models for microalgae biomass growth using live sensor data, and building interactive visualizations to make those predictions accessible to non-technical stakeholders.</p>
-      <p>Most people are researchers or developers. I graduated learning why you need both. You have to understand people well enough to build systems that actually work for them.</p>
-    </div>
-    <div class="about-photo reveal">
-      <img
-        src="assets/profile.jpg"
-        alt="Nishka Mathew"
-        style="width: 180px; height: 180px; border-radius: 50%; object-fit: cover; border: 3px solid var(--accent);"
-      />
->>>>>>> d3c31719214a1fea671b400cf1d697ddf06c748f
     </div>
   </div>
 </section>
@@ -1019,7 +630,6 @@
     <div class="section-line"></div>
   </div>
 
-<<<<<<< HEAD
   <div class="projects-grid reveal-stagger">
 
     <!-- COMPASS -->
@@ -1091,44 +701,11 @@
         <a href="https://github.com/nishka-mathew/Microalgae-Biomass-Predictor/blob/main/HCAI.ipynb" target="_blank" rel="noopener noreferrer" class="project-link">
           <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M9 19c-5 1.5-5-2.5-7-3m14 6v-3.87a3.37 3.37 0 0 0-.94-2.61c3.14-.35 6.44-1.54 6.44-7A5.44 5.44 0 0 0 20 4.77 5.07 5.07 0 0 0 19.91 1S18.73.65 16 2.48a13.38 13.38 0 0 0-7 0C6.27.65 5.09 1 5.09 1A5.07 5.07 0 0 0 5 4.77a5.44 5.44 0 0 0-1.5 3.78c0 5.42 3.3 6.61 6.44 7A3.37 3.37 0 0 0 9 18.13V22"/></svg>
           GitHub
-=======
-  <div class="projects-grid">
-
-    <!-- COMPASS Research -->
-    <div class="project-card reveal">
-      <div class="project-icon">📄</div>
-      <div class="project-badge">Published</div>
-      <div class="project-name">Published Research — COMPASS 2025</div>
-      <div class="project-desc">
-        Co-authored a peer-reviewed research paper published at ACM COMPASS 2025 titled <em>Privacy on the Move: Understanding Educational Migrants' Social Media Practices through the Lens of Communication Privacy Management Theory.</em> I assisted PhD student Sarah Tabassum through every stage of the research pipeline, from writing the literature review, designing the study, recruiting participants, to conducting 25+ semi-structured interviews with first-generation international students from 14 countries. I then analyzed the qualitative data through inductive coding, identifying 5 key themes that shaped how students navigate privacy on social media, and helped write the research paper for submission.
-      </div>
-      <div class="project-tags">
-        <span class="tag">UX Research</span>
-        <span class="tag">Qualitative Methods</span>
-        <span class="tag">Inductive Coding</span>
-        <span class="tag">IBM SPSS</span>
-        <span class="tag">Qualtrics</span>
-        <span class="tag">Overleaf</span>
-        <span class="tag">IRB Compliance</span>
-        <span class="tag">Privacy</span>
-      </div>
-      <div class="project-links">
-        <a href="https://doi.org/10.1145/3715335.3735453" target="_blank" rel="noopener noreferrer" class="project-link">
-          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-            <path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/>
-            <polyline points="14 2 14 8 20 8"/>
-            <line x1="16" y1="13" x2="8" y2="13"/>
-            <line x1="16" y1="17" x2="8" y2="17"/>
-            <polyline points="10 9 9 9 8 9"/>
-          </svg>
-          Read Research Paper
->>>>>>> d3c31719214a1fea671b400cf1d697ddf06c748f
         </a>
       </div>
     </div>
 
     <!-- Pearl Hacks -->
-<<<<<<< HEAD
     <div class="project-card" data-href="pearlhacks.html" onclick="goTo('pearlhacks.html')" role="link" tabindex="0">
       <div class="project-badge">1st Place</div>
       <div class="project-name">Pearl Hacks 2025 — BranchOut</div>
@@ -1143,39 +720,17 @@
           <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"/><polyline points="15 3 21 3 21 9"/><line x1="10" y1="14" x2="21" y2="3"/></svg>
           View Case Study
         </a>
-=======
-    <div class="project-card reveal">
-      <div class="project-icon">🏆</div>
-      <div class="project-badge">1st Place</div>
-      <div class="project-name">Pearl Hacks 2025</div>
-      <div class="project-desc">
-        Built in 24 hours at Pearl Hacks 2025, BranchOut is a community-driven mentorship platform to fill the gap of the lack of representation and personal connection in traditional networking spaces. This website connects industry mentors, researchers, and students through three core features: a mentorship matching system with demographic filters, a research collaboration portal that matches researchers by shared keywords, and daily career-focused Q&A prompts designed to foster authentic, ongoing engagement. The front-end was built in HTML and CSS, with JavaScript and Python powering the back-end logic. Integrating D3.js was one of our biggest technical challenges that we worked through with mentor support. We ended up winning 1st Place sponsored by Qorvo!
-      </div>
-      <div class="project-tags">
-        <span class="tag">HTML/CSS</span>
-        <span class="tag">JavaScript</span>
-        <span class="tag">D3.js</span>
-        <span class="tag">UX Design</span>
-        <span class="tag">Hackathon</span>
-      </div>
-      <div class="project-links">
->>>>>>> d3c31719214a1fea671b400cf1d697ddf06c748f
         <a href="https://github.com/nishka-mathew/BranchOut" target="_blank" rel="noopener noreferrer" class="project-link">
           <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M9 19c-5 1.5-5-2.5-7-3m14 6v-3.87a3.37 3.37 0 0 0-.94-2.61c3.14-.35 6.44-1.54 6.44-7A5.44 5.44 0 0 0 20 4.77 5.07 5.07 0 0 0 19.91 1S18.73.65 16 2.48a13.38 13.38 0 0 0-7 0C6.27.65 5.09 1 5.09 1A5.07 5.07 0 0 0 5 4.77a5.44 5.44 0 0 0-1.5 3.78c0 5.42 3.3 6.61 6.44 7A3.37 3.37 0 0 0 9 18.13V22"/></svg>
           GitHub
         </a>
         <a href="https://devpost.com/software/branchout-an-academic-community" target="_blank" rel="noopener noreferrer" class="project-link">
           <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"/><polyline points="15 3 21 3 21 9"/><line x1="10" y1="14" x2="21" y2="3"/></svg>
-<<<<<<< HEAD
           Devpost
-=======
-          Learn More
->>>>>>> d3c31719214a1fea671b400cf1d697ddf06c748f
         </a>
       </div>
     </div>
 
-<<<<<<< HEAD
     <!-- CinemaQuest -->
     <div class="project-card" data-href="cinemaquest.html" onclick="goTo('cinemaquest.html')" role="link" tabindex="0">
     <div class="project-name">CinemaQuest</div>
@@ -1193,123 +748,10 @@
       <a href="https://github.com/nishka-mathew/CinemaQuest-Final" target="_blank" rel="noopener noreferrer" class="project-link" onclick="event.stopPropagation()">
         <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M9 19c-5 1.5-5-2.5-7-3m14 6v-3.87a3.37 3.37 0 0 0-.94-2.61c3.14-.35 6.44-1.54 6.44-7A5.44 5.44 0 0 0 20 4.77 5.07 5.07 0 0 0 19.91 1S18.73.65 16 2.48a13.38 13.38 0 0 0-7 0C6.27.65 5.09 1 5.09 1A5.07 5.07 0 0 0 5 4.77a5.44 5.44 0 0 0-1.5 3.78c0 5.42 3.3 6.61 6.44 7A3.37 3.37 0 0 0 9 18.13V22"/></svg>
         GitHub
-=======
-    <!-- Microalgae Predictor -->
-    <div class="project-card reveal">
-      <div class="project-icon">🌱</div>
-      <div class="project-badge">Machine Learning</div>
-      <div class="project-name">AI Microalgae Biomass Predictor</div>
-      <div class="project-desc">
-        Built a predictive ML model to forecast microalgae biomass growth for Ecoclosure's Biochromic Window systems, a living building technology that uses microalgae for energy regulation and carbon capture. Tested linear, logarithmic, and random forest regression across multiple preprocessing strategies first using Kaggle data, then using real sensor data from Charlotte's Innovation Barn, with min-max scaled linear regression achieving the best performance at R&sup2; = 0.911. Designed interactive visualizations including a 14-day biomass forecast and feature importance charts to make model outputs interpretable to non-technical stakeholders.
-      </div>
-      <div class="project-tags">
-        <span class="tag">Python</span>
-        <span class="tag">Scikit-learn</span>
-        <span class="tag">Pandas</span>
-        <span class="tag">Jupyter Notebook</span>
-        <span class="tag">Machine Learning</span>
-        <span class="tag">Data Visualization</span>
-        <span class="tag">Human-Centered AI</span>
-      </div>
-      <div class="project-links">
-        <a href="https://github.com/nishka-mathew/DataMiningProject3/blob/main/Project-3%20(1).ipynb" target="_blank" rel="noopener noreferrer" class="project-link">
-          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M9 19c-5 1.5-5-2.5-7-3m14 6v-3.87a3.37 3.37 0 0 0-.94-2.61c3.14-.35 6.44-1.54 6.44-7A5.44 5.44 0 0 0 20 4.77 5.07 5.07 0 0 0 19.91 1S18.73.65 16 2.48a13.38 13.38 0 0 0-7 0C6.27.65 5.09 1 5.09 1A5.07 5.07 0 0 0 5 4.77a5.44 5.44 0 0 0-1.5 3.78c0 5.42 3.3 6.61 6.44 7A3.37 3.37 0 0 0 9 18.13V22"/></svg>
-          GitHub — Kaggle Data
-        </a>
-        <a href="https://github.com/nishka-mathew/Microalgae-Biomass-Predictor/blob/main/HCAI.ipynb" target="_blank" rel="noopener noreferrer" class="project-link">
-          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M9 19c-5 1.5-5-2.5-7-3m14 6v-3.87a3.37 3.37 0 0 0-.94-2.61c3.14-.35 6.44-1.54 6.44-7A5.44 5.44 0 0 0 20 4.77 5.07 5.07 0 0 0 19.91 1S18.73.65 16 2.48a13.38 13.38 0 0 0-7 0C6.27.65 5.09 1 5.09 1A5.07 5.07 0 0 0 5 4.77a5.44 5.44 0 0 0-1.5 3.78c0 5.42 3.3 6.61 6.44 7A3.37 3.37 0 0 0 9 18.13V22"/></svg>
-          GitHub — Ecoclosure Sensor Data
-        </a>
-        <a href="https://drive.google.com/file/d/13fpWmAB03nd_NAdXMu7voCPOHJqnn0mi/view?usp=sharing" target="_blank" rel="noopener noreferrer" class="project-link">
-          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-            <path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/>
-            <polyline points="14 2 14 8 20 8"/>
-            <line x1="16" y1="13" x2="8" y2="13"/>
-            <line x1="16" y1="17" x2="8" y2="17"/>
-            <polyline points="10 9 9 9 8 9"/>
-          </svg>
-          Research Paper
-        </a>
-      </div>
-    </div>
-
-    <!-- MvR UX Research -->
-  <div class="project-card reveal">
-    <div class="project-icon">🎭</div>
-    <div class="project-badge">UX Research</div>
-    <div class="project-name">MvR — Movie & TV Review App</div>
-    <div class="project-desc">
-      Conducted a multi-phase UX research study on movie and TV review platforms, identifying key pain points users experience on existing platforms like IMDb and Letterboxd. Starting with structured usability tests and expanding to affinity diagramming, empathy maps, and user personas. The research surfaced five core themes around trust, interface usability, rating systems, content discovery, and personalization.
-      Built on those findings through co-design sessions with 10 participants aged 18–24, where participants sketched and thought aloud through key screens. Synthesized outputs into three design concepts: Trusted Transparency, Streamlined Navigation, and Personalized Discovery. Translated those concepts into higher-fidelity wireframes and prototypes in Figma, producing user journey maps, user flow diagrams, storyboards, and a full project brief communicating the recommended user experience to stakeholders.
-    </div>
-    <div class="project-tags">
-      <span class="tag">UX Research</span>
-      <span class="tag">Affinity Diagramming</span>
-      <span class="tag">User Journey Mapping</span>
-      <span class="tag">User Personas</span>
-      <span class="tag">Empathy Maps</span>
-      <span class="tag">Wireframing</span>
-      <span class="tag">Figma</span>
-      <span class="tag">Usability Testing</span>
-      <span class="tag">Co-Design</span>
-      <span class="tag">Prototyping</span>
-    </div>
-    <div class="project-links">
-      <a href="https://miro.com/app/board/uXjVJsG0x3w=/?share_link_id=553813153749" target="_blank" rel="noopener noreferrer" class="project-link">
-        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-          <rect x="3" y="3" width="18" height="18" rx="2" ry="2"/>
-          <circle cx="8.5" cy="8.5" r="1.5"/>
-          <polyline points="21 15 16 10 5 21"/>
-        </svg>
-        Affinity Diagram
-      </a>
-      <a href="https://docs.google.com/document/d/1Btf765Atw9iubuJeP_5QkJuU_I8Qkaw2lxsHCmgT-BE/edit?usp=sharing" target="_blank" rel="noopener noreferrer" class="project-link">
-        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-          <path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/>
-          <polyline points="14 2 14 8 20 8"/>
-          <line x1="16" y1="13" x2="8" y2="13"/>
-          <line x1="16" y1="17" x2="8" y2="17"/>
-          <polyline points="10 9 9 9 8 9"/>
-        </svg>
-        Design Report
-      </a>
-      <a href="https://drive.google.com/file/d/1ghRBJPJ8SA5mvyMesUZrDRQ5KhY93oww/view?usp=sharing" target="_blank" rel="noopener noreferrer" class="project-link">
-        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-          <rect x="3" y="3" width="18" height="18" rx="2" ry="2"/>
-          <circle cx="8.5" cy="8.5" r="1.5"/>
-          <polyline points="21 15 16 10 5 21"/>
-        </svg>
-        Poster Presentation
->>>>>>> d3c31719214a1fea671b400cf1d697ddf06c748f
       </a>
     </div>
   </div>
 
-<<<<<<< HEAD
-=======
-    <!-- CinemaQuest -->
-    <div class="project-card reveal">
-      <div class="project-icon">🎬</div>
-      <div class="project-name">CinemaQuest</div>
-      <div class="project-desc">
-        iOS app built in Xcode using Swift for movie enthusiasts who want to discover new films and keep track of what they have watched. The app pulls real-time trending movie data from The Movie Database (TMDB) API, displaying detailed information including overviews, release dates, ratings, and movie posters. Users can manage two personal watchlists (Up Next and Watched) with the ability to add custom movies, leave notes, and set watch dates. Trending movies can also be sorted by release date, popularity, or rating. Built with a UIKit interface featuring async image loading via Nuke, all watchlist data is stored locally for persistent access across sessions.
-      </div>
-      <div class="project-tags">
-        <span class="tag">Swift</span>
-        <span class="tag">Xcode</span>
-        <span class="tag">UIKit</span>
-        <span class="tag">TMDB API</span>
-        <span class="tag">iOS</span>
-      </div>
-      <div class="project-links">
-        <a href="https://github.com/nishka-mathew/CinemaQuest-Final" target="_blank" rel="noopener noreferrer" class="project-link">
-          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M9 19c-5 1.5-5-2.5-7-3m14 6v-3.87a3.37 3.37 0 0 0-.94-2.61c3.14-.35 6.44-1.54 6.44-7A5.44 5.44 0 0 0 20 4.77 5.07 5.07 0 0 0 19.91 1S18.73.65 16 2.48a13.38 13.38 0 0 0-7 0C6.27.65 5.09 1 5.09 1A5.07 5.07 0 0 0 5 4.77a5.44 5.44 0 0 0-1.5 3.78c0 5.42 3.3 6.61 6.44 7A3.37 3.37 0 0 0 9 18.13V22"/></svg>
-          GitHub
-        </a>
-      </div>
-    </div>
-
->>>>>>> d3c31719214a1fea671b400cf1d697ddf06c748f
   </div>
 </section>
 
@@ -1320,7 +762,6 @@
     <h2 class="section-title">Education</h2>
     <div class="section-line"></div>
   </div>
-<<<<<<< HEAD
   <div class="edu-grid reveal-stagger">
     <div class="skill-group">
       <div class="skill-group-name">Degree</div>
@@ -1343,57 +784,12 @@
       </div>
     </div>
     <div class="skill-group">
-=======
-  <div class="edu-grid">
-
-    <!-- Degree Card -->
-    <div class="skill-group reveal">
-      <div class="skill-group-name">Degree</div>
-      <p style="color: var(--text); font-size: 0.88rem; margin-bottom: 0.5rem; line-height: 1.7;">
-        University of North Carolina at Charlotte
-      </p>
-      <p style="color: var(--muted); font-size: 0.82rem; margin-bottom: 0.5rem;">
-        B.A. Computer Science &amp; B.S. Psychology
-      </p>
-      <p style="color: var(--muted); font-size: 0.82rem; margin-bottom: 1rem;">
-        Graduated December 2025 &nbsp;·&nbsp; GPA 3.83
-      </p>
-      <div class="skill-items">
-        <span class="skill-pill">Chancellor's List — Fall 2022 to Fall 2023, Fall 2024, Fall 2025</span>
-        <span class="skill-pill">Dean's List — Spring 2024, Spring 2025</span>
-      </div>
-    </div>
-
-    <!-- Coursework Card -->
-    <div class="skill-group reveal">
-      <div class="skill-group-name">Relevant Coursework</div>
-      <div class="skill-items">
-        <span class="skill-pill">Data Mining</span>
-        <span class="skill-pill">Human-Centered AI</span>
-        <span class="skill-pill">UX Methods</span>
-        <span class="skill-pill">Research Methodology II</span>
-        <span class="skill-pill">iOS Development</span>
-        <span class="skill-pill">Design Prototyping</span>
-        <span class="skill-pill">Data Structures &amp; Algorithms</span>
-        <span class="skill-pill">Cognitive Science</span>
-        <span class="skill-pill">Elements of Statistics II</span>
-      </div>
-    </div>
-
-    <!-- Certifications Card -->
-    <div class="skill-group reveal">
->>>>>>> d3c31719214a1fea671b400cf1d697ddf06c748f
       <div class="skill-group-name">Certifications</div>
       <div class="skill-items">
         <span class="skill-pill">CITI Human Subjects Research</span>
         <span class="skill-pill">Microsoft Office</span>
       </div>
-    </div>
-<<<<<<< HEAD
-=======
-
->>>>>>> d3c31719214a1fea671b400cf1d697ddf06c748f
-  </div>
+    </div>  </div>
 </section>
 
 <!-- Experience -->
@@ -1406,7 +802,7 @@
   <div class="exp-list">
 
     <div class="exp-item reveal">
-<<<<<<< HEAD
+    <div class="exp-item reveal">
       <div>
         <div class="exp-date">Sep 2024 – Present</div>
         <div class="exp-org">Jinya Ramen Bar</div>
@@ -1417,25 +813,11 @@
           <li>Led front-of-house operations for a 15-person team in a high-volume, fast-paced environment — building cross-functional collaboration and agile task management skills</li>
           <li>Made data-informed operational decisions by tracking turnover rates, inventory patterns, and peak service data to optimize resource allocation</li>
           <li>Onboarded and mentored new team members, designing training procedures to consistent quality standards</li>
-=======
-      <div class="exp-meta">
-        <div class="exp-date">September 2024 – Current</div>
-        <div class="exp-org">Jinya Ramen Bar</div>
-      </div>
-      <div>
-        <div class="exp-role">Shift Lead, Server &amp; Bartender </div>
-        <ul class="exp-bullets">
-          <li>Led and coordinated front-of-house operations during high-volume service periods, managing a team of staff to ensure efficient workflow and consistent service delivery</li>
-          <li>Applied data-informed decision making by tracking table turnover, inventory levels, and peak service patterns to optimize resource allocation during shifts</li>
-          <li>Demonstrated adaptability and composure under pressure in a fast-paced, high-demand environment with competing priorities</li>
-          <li>Onboarded and mentored new team members on service standards, operational procedures, and guest experience best practices</li>
->>>>>>> d3c31719214a1fea671b400cf1d697ddf06c748f
         </ul>
       </div>
     </div>
 
     <div class="exp-item reveal">
-<<<<<<< HEAD
       <div>
         <div class="exp-date">May 2024 – Jul 2025</div>
         <div class="exp-org">SPEX Lab, UNC Charlotte</div>
@@ -1447,47 +829,21 @@
           <li>Conducted 25+ semi-structured interviews with participants from 14 countries, synthesizing findings through inductive coding into 5 key themes</li>
           <li>Performed quantitative analysis using IBM SPSS and produced a Top-Line Report with 10+ data visualizations for non-technical stakeholders</li>
           <li>Designed and distributed surveys using Qualtrics; prototyped a privacy-centered AI chatbot using the OpenAI API</li>
-=======
-      <div class="exp-meta">
-        <div class="exp-date">May 2024 – July 2025</div>
-        <div class="exp-org">Security Privacy and User Experience (SPEX) Lab</div>
-      </div>
-      <div>
-        <div class="exp-role">Research Intern</div>
-        <ul class="exp-bullets">
-          <li>Co-authored a peer-reviewed paper published in ACM COMPASS 2025 on the privacy practices of first-generation international students</li>
-          <li>Conducted 25+ semi-structured interviews with participants from 14 countries</li>
-          <li>Analyzed qualitative data through inductive coding, identifying 5 key themes shaping students' privacy practices</li>
-          <li>Performed quantitative analysis using IBM SPSS and produced a Top-Line Report summarizing key findings with 10+ data visualizations</li>
-          <li>Designed and distributed surveys using Qualtrics to support data collection across the study</li>
-          <li>Worked on a prototype for a privacy-centered AI chatbot built using the OpenAI API</li>
->>>>>>> d3c31719214a1fea671b400cf1d697ddf06c748f
         </ul>
       </div>
     </div>
 
     <div class="exp-item reveal">
-<<<<<<< HEAD
       <div>
-=======
-      <div class="exp-meta">
->>>>>>> d3c31719214a1fea671b400cf1d697ddf06c748f
         <div class="exp-date">Jan 2023 – May 2024</div>
         <div class="exp-org">UNC Charlotte</div>
       </div>
       <div>
         <div class="exp-role">Teaching Assistant</div>
         <ul class="exp-bullets">
-<<<<<<< HEAD
           <li>Supported 200+ students across College Algebra, Research Methodology I &amp; II — improving performance by 12–15% through iterative workshop design</li>
           <li>Guided 30+ student research projects through the full pipeline including a mock IRB submission process</li>
           <li>Provided detailed feedback on final research papers with consistency and faculty-aligned standards</li>
-=======
-          <li>Supported 200+ students across College Algebra, Research Methodology I &amp; II</li>
-          <li>Designed study guides and workshops that improved student performance by 12–15%</li>
-          <li>Guided 30+ student research projects through the full research pipeline, including a mock IRB submission process</li>
-          <li>Provided detailed feedback on final research papers, grading with consistency and supporting faculty in course delivery</li>
->>>>>>> d3c31719214a1fea671b400cf1d697ddf06c748f
         </ul>
       </div>
     </div>
@@ -1502,7 +858,6 @@
     <h2 class="section-title">Skills</h2>
     <div class="section-line"></div>
   </div>
-<<<<<<< HEAD
   <div class="skills-grid reveal-stagger">
     <div class="skill-group">
       <div class="skill-group-name">Languages</div>
@@ -1535,50 +890,6 @@
         <span class="skill-pill">Xcode</span><span class="skill-pill">Jupyter Notebook</span>
         <span class="skill-pill">Overleaf</span><span class="skill-pill">GitHub</span>
         <span class="skill-pill">Microsoft Office</span><span class="skill-pill">Miro</span>
-=======
-  <div class="skills-grid">
-    <div class="skill-group reveal">
-      <div class="skill-group-name">Languages</div>
-      <div class="skill-items">
-        <span class="skill-pill">Python</span>
-        <span class="skill-pill">JavaScript</span>
-        <span class="skill-pill">SQL</span>
-        <span class="skill-pill">HTML</span>
-        <span class="skill-pill">Swift</span>
-      </div>
-    </div>
-    <div class="skill-group reveal">
-      <div class="skill-group-name">Design &amp; Research</div>
-      <div class="skill-items">
-        <span class="skill-pill">Figma</span>
-        <span class="skill-pill">Qualitative Research</span>
-        <span class="skill-pill">Quantitative Research</span>
-        <span class="skill-pill">UX Methods</span>
-        <span class="skill-pill">Qualtrics</span>
-        <span class="skill-pill">IRB Process</span>
-      </div>
-    </div>
-    <div class="skill-group reveal">
-      <div class="skill-group-name">Data &amp; Analytics</div>
-      <div class="skill-items">
-        <span class="skill-pill">IBM SPSS</span>
-        <span class="skill-pill">Scikit-learn</span>
-        <span class="skill-pill">Pandas</span>
-        <span class="skill-pill">Tableau</span>
-        <span class="skill-pill">Power BI</span>
-        <span class="skill-pill">Machine Learning</span>
-        <span class="skill-pill">Data Mining</span>
-      </div>
-    </div>
-    <div class="skill-group reveal">
-      <div class="skill-group-name">Tools &amp; Platforms</div>
-      <div class="skill-items">
-        <span class="skill-pill">Xcode</span>
-        <span class="skill-pill">Jupyter Notebook</span>
-        <span class="skill-pill">Overleaf</span>
-        <span class="skill-pill">GitHub</span>
-        <span class="skill-pill">Microsoft Office</span>
->>>>>>> d3c31719214a1fea671b400cf1d697ddf06c748f
       </div>
     </div>
   </div>
@@ -1586,7 +897,6 @@
 
 <!-- Contact -->
 <section id="contact">
-<<<<<<< HEAD
   <div class="contact-inner">
     <p class="contact-tagline reveal">
       Good systems start with<br><em>understanding people.</em>
@@ -1597,26 +907,28 @@
       <a href="https://linkedin.com/in/nishka-mathew" target="_blank" rel="noopener noreferrer" class="btn btn-outline">LinkedIn</a>
       <a href="assets/Nishka_Mathew_Resume.pdf" target="_blank" rel="noopener noreferrer" class="btn btn-outline">Resume</a>
     </div>
-=======
-  <p class="contact-tagline reveal">
-    Good systems start with <br><em>understanding people.</em>
-  </p>
-  <div class="contact-links reveal">
-    <a href="mailto:nishkamathew2@gmail.com" class="btn btn-primary">nishkamathew2@gmail.com</a>
-    <a href="https://linkedin.com/in/nishka-mathew" target="_blank" rel="noopener noreferrer" class="btn btn-outline">LinkedIn</a>
-    <a href="assets/Nishka_Mathew_Resume.pdf" target="_blank" rel="noopener noreferrer" class="btn btn-outline">Resume</a>
->>>>>>> d3c31719214a1fea671b400cf1d697ddf06c748f
   </div>
 </section>
 
 <!-- Footer -->
 <footer>
-<<<<<<< HEAD
   <span>© 2025 Nishka Mathew</span>
-  <span>UNC Charlotte<span class="footer-dot">·</span>CS + Psychology<span class="footer-dot"></span>
+  <span>UNC Charlotte<span class="footer-dot">·</span>CS + Psychology<span class="footer-dot">·</span>Charlotte, NC</span>
 </footer>
 
 <script>
+  /* Rotating words */
+  (function() {
+    var words = document.querySelectorAll('.rotating-word');
+    if (!words.length) return;
+    var current = 0;
+    setInterval(function() {
+      words[current].classList.remove('active');
+      current = (current + 1) % words.length;
+      words[current].classList.add('active');
+    }, 2800);
+  })();
+
   /* Card navigation */
   function goTo(href) { window.location.href = href; }
   // Stop inner links from double-firing card navigation
@@ -1634,26 +946,10 @@
   function setTheme(t, el) {
     if (t === 'default') document.body.removeAttribute('data-theme');
     else document.body.setAttribute('data-theme', t);
-=======
-  <span>&copy; 2025 Nishka Mathew</span>
-  <span>UNC Charlotte &middot; CS + Psychology</span>
-</footer>
-
-<!-- JavaScript -->
-<script>
-  /* Theme switcher */
-  function setTheme(t, el) {
-    if (t === 'default') {
-      document.body.removeAttribute('data-theme');
-    } else {
-      document.body.setAttribute('data-theme', t);
-    }
->>>>>>> d3c31719214a1fea671b400cf1d697ddf06c748f
     document.querySelectorAll('.theme-dot').forEach(d => d.classList.remove('active'));
     el.classList.add('active');
     localStorage.setItem('nm-theme', t);
   }
-<<<<<<< HEAD
   (() => {
     const s = localStorage.getItem('nm-theme');
     if (s && s !== 'default') {
@@ -1678,49 +974,6 @@
     sections.forEach(s => { if (window.scrollY >= s.offsetTop - 100) cur = s.id; });
     navLinks.forEach(a => { a.classList.toggle('active', a.dataset.section === cur); });
   }, { passive: true });
-=======
-  const saved = localStorage.getItem('nm-theme');
-  if (saved) {
-    if (saved === 'default') {
-      document.body.removeAttribute('data-theme');
-    } else {
-      document.body.setAttribute('data-theme', saved);
-    }
-    document.querySelectorAll('.theme-dot').forEach(d => {
-      d.classList.toggle('active', d.dataset.t === saved);
-    });
-  }
-
-  /* Scroll reveal */
-  const observer = new IntersectionObserver(entries => {
-    entries.forEach(e => {
-      if (e.isIntersecting) {
-        e.target.classList.add('visible');
-        observer.unobserve(e.target);
-      }
-    });
-  }, { threshold: 0.12 });
-  document.querySelectorAll('.reveal').forEach(el => observer.observe(el));
-
-  /* Active nav on scroll */
-  const sections = document.querySelectorAll('section[id]');
-  const navLinks = document.querySelectorAll('.nav-links a');
-  window.addEventListener('scroll', () => {
-    let current = '';
-    sections.forEach(section => {
-      const sectionTop = section.offsetTop - 100;
-      if (window.scrollY >= sectionTop) {
-        current = section.getAttribute('id');
-      }
-    });
-    navLinks.forEach(link => {
-      link.classList.remove('active');
-      if (link.dataset.section === current) {
-        link.classList.add('active');
-      }
-    });
-  });
->>>>>>> d3c31719214a1fea671b400cf1d697ddf06c748f
 </script>
 </body>
 </html>
